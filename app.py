@@ -24,7 +24,20 @@ smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoke
 
 gender_map = {"Female": 0, "Male": 1, "Other": 2}
 ever_married_map = {"No": 0, "Yes": 1}
+work_type_map = {
+    "Private": 2,
+    "Self-employed": 3,
+    "Govt_job": 0,
+    "children": 4,
+    "Never_worked": 1
+}
 residence_map = {"Urban": 1, "Rural": 0}
+smoking_status_map = {
+    "never smoked": 2,
+    "formerly smoked": 1,
+    "smokes": 3,
+    "Unknown": 0
+}
 
 input_data = pd.DataFrame({
     'gender': [gender_map[gender]],
@@ -32,11 +45,11 @@ input_data = pd.DataFrame({
     'hypertension': [hypertension],
     'heart_disease': [heart_disease],
     'ever_married': [ever_married_map[ever_married]],
-    'work_type': [work_type],  
+    'work_type': [work_typ_map[work_type]],  
     'Residence_type': [residence_map[residence_type]],
     'avg_glucose_level': [avg_glucose_level],
     'bmi': [bmi],
-    'smoking_status': [smoking_status]  
+    'smoking_status': [smoking_status_map[smoking_status]]
 })
 
 # Prediction
