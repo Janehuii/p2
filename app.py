@@ -45,7 +45,7 @@ input_data = pd.DataFrame({
     'hypertension': [hypertension],
     'heart_disease': [heart_disease],
     'ever_married': [ever_married_map[ever_married]],
-    'work_type': [work_typ_map[work_type]],  
+    'work_type': [work_type_map[work_type]],  
     'Residence_type': [residence_map[residence_type]],
     'avg_glucose_level': [avg_glucose_level],
     'bmi': [bmi],
