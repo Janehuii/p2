@@ -1,31 +1,14 @@
+# streamlit_app.py
 import streamlit as st
-import numpy as np
 import pandas as pd
-import joblib 
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import cross_val_score, KFold
-from sklearn.model_selection import StratifiedKFold, cross_val_score
-from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import make_scorer
-from sklearn.metrics import accuracy_score, classification_report
-from sklearn.metrics import confusion_matrix
-from sklearn.svm import SVC
-from imblearn.over_sampling import ADASYN
+import joblib
 
-# Load the saved Random Forest model
+# Load saved pipeline
 model = joblib.load('best_rf_model.pkl')
 
-st.title("Stroke Prediction")
+st.title("Stroke Prediction App")
 
-st.write("Enter the input details below:")
-
-
-# Collect user input
+# User inputs
 gender = st.selectbox("Gender", ["Male", "Female", "Other"])
 age = st.number_input("Age", min_value=0)
 hypertension = st.selectbox("Hypertension", [0, 1])
@@ -33,44 +16,11 @@ heart_disease = st.selectbox("Heart Disease", [0, 1])
 ever_married = st.selectbox("Ever Married", ["Yes", "No"])
 work_type = st.selectbox("Work Type", ["Private", "Self-employed", "Govt_job", "children", "Never_worked"])
 residence_type = st.selectbox("Residence Type", ["Urban", "Rural"])
-avg_glucose_level = st.number_input("Average Glucose Level")
-bmi = st.number_input("BMI")
+avg_glucose_level = st.number_input("Average Glucose Level", min_value=0.0)
+bmi = st.number_input("BMI", min_value=0.0)
 smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoked", "smokes", "Unknown"])
 
-categorical_cols = ['gender', 'ever_married', 'work_type', 'Residence_type', 'smoking_status']
-
-# Initialize a label encoder object
-label_encoders = {}
-
-# Loop through each categorical column and encode
-for col in categorical_cols:
-    le = LabelEncoder()
-    data[col] = le.fit_transform(data[col])
-    label_encoders[col] = le  # Save the encoder for potential inverse transformations later
-
-# List of numerical columns to scale
-numerical_cols = ['age', 'avg_glucose_level', 'bmi']
-
-# Initialize the scaler
-scaler = StandardScaler()
-
-# Apply the scaler to the numerical features
-data[numerical_cols] = scaler.fit_transform(data[numerical_cols])
-
-skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
-# Split the dataset into training and validation sets (80% training, 20% validation)
-X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
-
-# Apply ADASYN to balance the classes
-adasyn = ADASYN(random_state=42)
-X_resampled, y_resampled = adasyn.fit_resample(X, y)
-# Balance the data
-for train_idx, test_idx in skf.split(X_resampled, y_resampled):
-    X_train, X_test = X_resampled.iloc[train_idx], X_resampled.iloc[test_idx]
-    y_train, y_test = y_resampled.iloc[train_idx], y_resampled.iloc[test_idx]
-
-
-# Convert input into DataFrame (make sure it matches training features)
+# Input to DataFrame
 input_data = pd.DataFrame({
     'gender': [gender],
     'age': [age],
@@ -84,11 +34,11 @@ input_data = pd.DataFrame({
     'smoking_status': [smoking_status]
 })
 
-
-# Predict
+# Prediction
 if st.button("Predict"):
-    prediction = model.predict(input_data)
-    probability = model.predict_proba(input_data)[0][1]  # Probability of stroke
-
-    st.write(f"### Prediction: {'Stroke' if prediction[0] == 1 else 'No Stroke'}")
+    prediction = model.predict(input_data)[0]
+    probability = model.predict_proba(input_data)[0][1]
+    
+    st.write(f"### Prediction: {'Stroke' if prediction == 1 else 'No Stroke'}")
     st.write(f"### Probability of Stroke: {probability:.2%}")
+
