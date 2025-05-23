@@ -3,6 +3,19 @@ import numpy as np
 import pandas as pd
 import joblib 
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score, KFold
+from sklearn.model_selection import StratifiedKFold, cross_val_score
+from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import make_scorer
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn.svm import SVC
+from imblearn.over_sampling import ADASYN
 
 # Load the saved Random Forest model
 model = joblib.load('best_rf_model.pkl')
