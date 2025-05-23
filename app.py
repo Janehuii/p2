@@ -4,7 +4,7 @@ import pandas as pd
 import joblib 
 
 # Load the saved Random Forest model
-model = jb.load('best_rf_model.pkl')
+model = joblib.load('best_rf_model.pkl')
 
 st.title("Stroke Prediction")
 
