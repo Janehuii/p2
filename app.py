@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import joblib as jb
+import joblib 
 
 # Load the saved Random Forest model
 model = jb.load('best_rf_model.pkl')
