@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 # Load saved pipeline
-model = joblib.load('best_rf_model.pkl')
+model = joblib.load('model.pkl')
 
 st.title("Stroke Prediction App")
 
