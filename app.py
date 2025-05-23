@@ -23,6 +23,39 @@ avg_glucose_level = st.number_input("Average Glucose Level")
 bmi = st.number_input("BMI")
 smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoked", "smokes", "Unknown"])
 
+categorical_cols = ['gender', 'ever_married', 'work_type', 'Residence_type', 'smoking_status']
+
+# Initialize a label encoder object
+label_encoders = {}
+
+# Loop through each categorical column and encode
+for col in categorical_cols:
+    le = LabelEncoder()
+    data[col] = le.fit_transform(data[col])
+    label_encoders[col] = le  # Save the encoder for potential inverse transformations later
+
+# List of numerical columns to scale
+numerical_cols = ['age', 'avg_glucose_level', 'bmi']
+
+# Initialize the scaler
+scaler = StandardScaler()
+
+# Apply the scaler to the numerical features
+data[numerical_cols] = scaler.fit_transform(data[numerical_cols])
+
+skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
+# Split the dataset into training and validation sets (80% training, 20% validation)
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+# Apply ADASYN to balance the classes
+adasyn = ADASYN(random_state=42)
+X_resampled, y_resampled = adasyn.fit_resample(X, y)
+# Balance the data
+for train_idx, test_idx in skf.split(X_resampled, y_resampled):
+    X_train, X_test = X_resampled.iloc[train_idx], X_resampled.iloc[test_idx]
+    y_train, y_test = y_resampled.iloc[train_idx], y_resampled.iloc[test_idx]
+
+
 # Convert input into DataFrame (make sure it matches training features)
 input_data = pd.DataFrame({
     'gender': [gender],
