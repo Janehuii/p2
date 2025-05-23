@@ -23,19 +23,20 @@ bmi = st.number_input("BMI", min_value=0.0)
 smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoked", "smokes", "Unknown"])
 
 gender_map = {"Female": 0, "Male": 1, "Other": 2}
+ever_married_map = {"No": 0, "Yes": 1}
+residence_map = {"Urban": 1, "Rural": 0}
 
-# Input to DataFrame
 input_data = pd.DataFrame({
     'gender': [gender_map[gender]],
     'age': [age],
     'hypertension': [hypertension],
     'heart_disease': [heart_disease],
-    'ever_married': [ever_married],
-    'work_type': [work_type],
-    'Residence_type': [residence_type],
+    'ever_married': [ever_married_map[ever_married]],
+    'work_type': [work_type],  
+    'Residence_type': [residence_map[residence_type]],
     'avg_glucose_level': [avg_glucose_level],
     'bmi': [bmi],
-    'smoking_status': [smoking_status]
+    'smoking_status': [smoking_status]  
 })
 
 # Prediction
