@@ -22,12 +22,11 @@ avg_glucose_level = st.number_input("Average Glucose Level", min_value=0.0)
 bmi = st.number_input("BMI", min_value=0.0)
 smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoked", "smokes", "Unknown"])
 
-gender_encoder = LabelEncoder()
-df['gender'] = gender_encoder.fit_transform(df['gender']) 
+gender_map = {"Female": 0, "Male": 1, "Other": 2}
 
 # Input to DataFrame
 input_data = pd.DataFrame({
-    'gender': [gender],
+    'gender': [gender_map[gender]],
     'age': [age],
     'hypertension': [hypertension],
     'heart_disease': [heart_disease],
