@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 from sklearn.preprocessing import LabelEncoder
-pip install scikit-learn==1.5.1
+
 
 # Load saved pipeline
 model = joblib.load('best_rf_model.pkl')
