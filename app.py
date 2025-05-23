@@ -2,6 +2,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from sklearn.preprocessing import LabelEncoder
+
 
 # Load saved pipeline
 model = joblib.load('best_rf_model.pkl')
@@ -19,6 +21,9 @@ residence_type = st.selectbox("Residence Type", ["Urban", "Rural"])
 avg_glucose_level = st.number_input("Average Glucose Level", min_value=0.0)
 bmi = st.number_input("BMI", min_value=0.0)
 smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoked", "smokes", "Unknown"])
+
+gender_encoder = LabelEncoder()
+df['gender'] = gender_encoder.fit_transform(df['gender']) 
 
 # Input to DataFrame
 input_data = pd.DataFrame({
