@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib 
+from sklearn.preprocessing import LabelEncoder
 
 # Load the saved Random Forest model
 model = joblib.load('best_rf_model.pkl')
