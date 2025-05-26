@@ -58,6 +58,7 @@ if st.button("Predict"):
     prediction = model.predict(input_data)[0]
     probability = model.predict_proba(input_data)[0][1]
     
-    st.write(f"### Prediction: {'Stroke' if prediction == 1 else 'No Stroke'}")
+    result = "🟥 High Risk of Stroke" if pred == 1 else "🟩 Low Risk of Stroke"
+    st.subheader(f"Prediction: {result}")
 
 
