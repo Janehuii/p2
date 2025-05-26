@@ -15,7 +15,28 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
- 
+st.markdown("""
+    <style>
+        .main {
+            background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .stButton>button {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 10px 24px;
+        }
+        .stButton>button:hover {
+            background-color: #0056b3;
+        }
+        h1, h2, h3 {
+            color: #004d61;
+        }
+    </style>
+""", unsafe_allow_html=True) 
 
 st.title("Stroke Prediction App")
 
