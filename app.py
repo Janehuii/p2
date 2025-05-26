@@ -4,7 +4,6 @@ import pandas as pd
 import joblib
 from sklearn.preprocessing import LabelEncoder
 
-
 # Load saved pipeline
 model = joblib.load('rfmodel.pkl')
 # Set Streamlit page config
@@ -14,7 +13,6 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="collapsed"
 )
-
 
 st.title("Stroke Prediction App")
 
