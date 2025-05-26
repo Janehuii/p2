@@ -56,9 +56,8 @@ input_data = pd.DataFrame({
 # Prediction
 if st.button("Predict"):
     prediction = model.predict(input_data)[0]
-    probability = model.predict_proba(input_data)[0][1]
     
-    result = "🟥 High Risk of Stroke" if pred == 1 else "🟩 Low Risk of Stroke"
+    result = "🟥 High Risk of Stroke" if prediction == 1 else "🟩 Low Risk of Stroke"
     st.subheader(f"Prediction: {result}")
 
 
