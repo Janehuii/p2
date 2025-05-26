@@ -58,5 +58,5 @@ if st.button("Predict"):
     probability = model.predict_proba(input_data)[0][1]
     
     st.write(f"### Prediction: {'Stroke' if prediction == 1 else 'No Stroke'}")
-    st.write(f"### Probability of Stroke: {probability:.2%}")
+
 
