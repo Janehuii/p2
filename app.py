@@ -15,7 +15,7 @@ gender = st.selectbox("Gender", ["Male", "Female", "Other"])
 age = st.number_input("Age", min_value=0)
 ever_married = st.selectbox("Ever Married", ["Yes", "No"])
 work_type = st.selectbox("Work Type", ["Private", "Self-employed", "Govt_job", "children", "Never_worked"])
-bmi = 0
+bmi_input = st.number_input("BMI", min_value=0.0)
 residence_type = st.selectbox("Residence Type", ["Urban", "Rural"])
 avg_glucose_level = st.number_input("Average Glucose Level", min_value=0.0)
 smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoked", "smokes", "Unknown"])
@@ -29,6 +29,7 @@ residence_map = {"Rural": 0,"Urban": 1}
 smoking_status_map = { "Unknown": 0,  "formerly smoked": 1, "never smoked": 2,"smokes": 3}
 hypertension = 1 if hypertension == "Yes" else 0
 heart_disease = 1 if heart_disease == "Yes" else 0
+bmi= 0
 
 input_data = pd.DataFrame({
     'gender': [gender_map[gender]],
