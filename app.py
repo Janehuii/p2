@@ -13,6 +13,40 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="collapsed"
 )
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #e0f7fa; /* Light sky blue */
+    }
+    .stApp {
+        background-color: #e0f7fa;
+    }
+    .css-1d391kg {
+        background-color: #ffffff; /* Card color */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .stButton>button {
+        background-color: #ff6f61;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 0.5em 1.5em;
+    }
+    .stButton>button:hover {
+        background-color: #e53935;
+    }
+    .prediction-text {
+        font-size: 24px;
+        font-weight: 700;
+        color: #d32f2f;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 st.title("Stroke Prediction App")
 
