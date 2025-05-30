@@ -16,17 +16,18 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    body {
-        background-color: #e0f7fa; /* Light sky blue */
-    }
     .stApp {
-        background-color: #e0f7fa;
+        background-image: url('https://i.imgur.com/f4dXw5U.png');  /* Replace with your cartoon image URL */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        padding: 10px;
     }
     .css-1d391kg {
-        background-color: #ffffff; /* Card color */
-        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent card */
+        border-radius: 12px;
         padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .stButton>button {
         background-color: #ff6f61;
@@ -47,6 +48,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 st.title("Stroke Prediction App")
 
