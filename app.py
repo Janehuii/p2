@@ -88,7 +88,9 @@ input_data = pd.DataFrame({
 })
 
 # Prediction
-if prediction == "High Risk":
+if st.button("Predict"):
+    prediction = model.predict(input_data)[0]
+if prediction == 1:
     st.markdown("<p style='color:red; font-size:24px; font-weight:bold;'>🔴 Prediction: High Risk of Stroke</p>", unsafe_allow_html=True)
 
     # HTML for sound alert
