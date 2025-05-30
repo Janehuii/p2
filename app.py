@@ -18,10 +18,10 @@ st.markdown(
     """
     <style>
     body {
-        background-color: rgba(173, 216, 230, 0.1); 
+        background-color: rgba(173, 216, 230, 0.5); 
     }
     .stApp {
-        background-color: rgba(173, 216, 230, 0.1);
+        background-color: rgba(173, 216, 230, 0.5);
     }
     .css-1d391kg {
         background-color: #ffffff; /* Card color */
