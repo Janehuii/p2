@@ -65,7 +65,7 @@ smoking_status = st.selectbox("Smoking Status", ["Never smoked", "Formerly smoke
 hypertension = st.selectbox("Hypertension", ["No", "Yes"])
 heart_disease = st.selectbox("Heart Disease", ["No", "Yes"])
 
-gender_map = {"Female": 0, "Male": 1, "Other": 2}
+gender_map = {"Other": 0, "Male": 1, "Female": 2}
 ever_married_map = {"No": 0, "Yes": 1}
 work_type_map = {"Govt_job": 0, "Never_worked": 1,"Private": 2,"Self-employed": 3,"Children": 4,}
 residence_map = {"Rural": 0,"Urban": 1}
