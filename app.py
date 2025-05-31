@@ -3,6 +3,17 @@ import streamlit as st
 import pandas as pd
 import joblib
 from sklearn.preprocessing import LabelEncoder
+from streamlit_lottie import st_lottie
+import requests
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+lottie_stroke = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_dzq0yxjg.json")
+st_lottie(lottie_stroke, height=300, key="stroke")
 
 # Load saved pipeline
 model = joblib.load('rfmodel.pkl')
