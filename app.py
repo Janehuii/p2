@@ -90,19 +90,29 @@ input_data = pd.DataFrame({
 # Prediction
 if st.button("Predict"):
     prediction = model.predict(input_data)[0]
-    if prediction == 1:
-        st.markdown("<p style='color:red; font-size:24px; font-weight:bold;'>🔴 Prediction: High Risk of Stroke</p>", unsafe_allow_html=True)
 
-    # HTML for sound alert
-    st.markdown(
-        """
-        <audio autoplay>
-            <source src="https://cdn.pixabay.com/download/audio/2025/05/23/audio_67ba0ac874.mp3?filename=alerte-346112.mp3" type="audio/mpeg">
-        </audio>
-        """,
-        unsafe_allow_html=True
-    )
-else:
-    st.markdown("<p style='color:green; font-size:24px; font-weight:bold;'>🟢 Prediction: Low Risk of Stroke</p>", unsafe_allow_html=True)
+    if prediction == 1:
+        # High risk output
+        st.markdown(
+            "<p style='color:red; font-size:24px; font-weight:bold;'>🔴 Prediction: High Risk of Stroke</p>",
+            unsafe_allow_html=True
+        )
+
+        # Play alert sound for high risk
+        st.markdown(
+            """
+            <audio autoplay>
+                <source src="https://cdn.pixabay.com/download/audio/2025/05/23/audio_67ba0ac874.mp3?filename=alerte-346112.mp3" type="audio/mpeg">
+            </audio>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+        # Low risk output
+        st.markdown(
+            "<p style='color:green; font-size:24px; font-weight:bold;'>🟢 Prediction: Low Risk of Stroke</p>",
+            unsafe_allow_html=True
+        )
+
 
 
