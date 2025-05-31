@@ -92,7 +92,6 @@ if st.button("Predict"):
     prediction = model.predict(input_data)[0]
 
     if prediction == 1:
-        
         # Play alert sound for high risk
         st.markdown(
             """
@@ -102,26 +101,19 @@ if st.button("Predict"):
             """,
             unsafe_allow_html=True
         )
-        
-         # Create two columns
-        col1, col2 = st.columns([3, 1])
-        with col1:
-        # High risk output
-            st.markdown(
-            "<p style='color:red; font-size:24px; font-weight:bold;'>🔴 Prediction: High Risk of Stroke</p>",
-            unsafe_allow_html=True
-        )
-         with col2:
-            st.image("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnZ0Z2F1OHNueWozZHh3YW9vbTNiZTdjY2txeGhwZWMwaDBweHh1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Mjk31gLRH3uQnKCsGX/giphy.gif", use_container_width=True)
 
-    else:
         # Create two columns
         col1, col2 = st.columns([3, 1])
 
         with col1:
-            st.markdown("<p style='color:green; font-size:24px; font-weight:bold;'>🟢 Prediction: Low Risk of Stroke</p>", unsafe_allow_html=True)
-        
+            # High risk output
+            st.markdown(
+                "<p style='color:red; font-size:24px; font-weight:bold;'>🔴 Prediction: High Risk of Stroke</p>",
+                unsafe_allow_html=True
+            )
+
         with col2:
-            st.image("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmg0b2twZXQzend6MDNzODI4dnUycGN1dGpwNXZ4NjY4dWl3MXg1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LpiVeIRgrqVsZJpM5H/giphy.gif", use_container_width=True)
-
-
+            st.image(
+                "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnZ0Z2F1OHNueWozZHh3YW9vbTNiZTdjY2txeGhwZWMwaDBweHh1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Mjk31gLRH3uQnKCsGX/giphy.gif",
+                use_container_width=True
+            )
