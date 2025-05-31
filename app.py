@@ -4,7 +4,10 @@ import pandas as pd
 import joblib
 import requests
 
+# Create two columns
+col1, col2 = st.columns([2, 1])  # Adjust width ratio as needed
 
+with col1:
 # Load saved pipeline
 model = joblib.load('rfmodel.pkl')
 # Set Streamlit page config
@@ -116,5 +119,6 @@ if st.button("Predict"):
             unsafe_allow_html=True
         )
 
-
+with col2:
+    st.image("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmg0b2twZXQzend6MDNzODI4dnUycGN1dGpwNXZ4NjY4dWl3MXg1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LpiVeIRgrqVsZJpM5H/giphy.gif", caption="🩺 Stay Healthy!", use_column_width=True)
 
