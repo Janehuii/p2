@@ -2,18 +2,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from sklearn.preprocessing import LabelEncoder
-from streamlit_lottie import st_lottie
 import requests
 
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-lottie_stroke = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_dzq0yxjg.json")
-st_lottie(lottie_stroke, height=300, key="stroke")
 
 # Load saved pipeline
 model = joblib.load('rfmodel.pkl')
@@ -50,6 +40,11 @@ st.markdown(
     .stButton>button:hover {
         background-color: #e53935;
     }
+    
+    <div style="text-align: center;">
+        <img src="blob:https://kr.pinterest.com/26d3db49-2ccd-41ed-9f60-45340075e73a" width="300">
+    </div>
+    
     .prediction-text {
         font-size: 24px;
         font-weight: 700;
