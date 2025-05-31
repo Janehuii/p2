@@ -118,4 +118,4 @@ if st.button("Predict"):
         with col2:
             st.image("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmg0b2twZXQzend6MDNzODI4dnUycGN1dGpwNXZ4NjY4dWl3MXg1cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LpiVeIRgrqVsZJpM5H/giphy.gif", use_container_width=True)
 
-ntainer
+
