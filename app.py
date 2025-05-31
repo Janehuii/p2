@@ -107,7 +107,7 @@ if st.button("Predict"):
         col1, col2 = st.columns([3, 1])
         with col1:
         # High risk output
-        st.markdown(
+            st.markdown(
             "<p style='color:red; font-size:24px; font-weight:bold;'>🔴 Prediction: High Risk of Stroke</p>",
             unsafe_allow_html=True
         )
