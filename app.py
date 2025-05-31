@@ -72,7 +72,7 @@ residence_map = {"Rural": 0,"Urban": 1}
 smoking_status_map = { "Unknown": 0,  "formerly smoked": 1, "never smoked": 2,"smokes": 3}
 hypertension = 1 if hypertension == "Yes" else 0
 heart_disease = 1 if heart_disease == "Yes" else 0
-bmi= 0
+
 
 input_data = pd.DataFrame({
     'gender': [gender_map[gender]],
