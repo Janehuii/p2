@@ -97,7 +97,7 @@ if st.button("Predict"):
     st.markdown(
         """
         <audio autoplay>
-            <source src="https://drive.google.com/file/d/1AFQsiBQnivhHfmaZ8L0d2BDX30xOSGWW/view?usp=sharing" type="audio/mpeg">
+            <source src="https://cdn.pixabay.com/download/audio/2025/05/23/audio_67ba0ac874.mp3?filename=alerte-346112.mp3" type="audio/mpeg">
         </audio>
         """,
         unsafe_allow_html=True
