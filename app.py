@@ -14,7 +14,7 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="collapsed"
 )
-
+st.image("blob:https://kr.pinterest.com/26d3db49-2ccd-41ed-9f60-45340075e73a", caption="Stay Healthy!", use_column_width=True)
 st.markdown(
     """
     <style>
@@ -40,10 +40,6 @@ st.markdown(
     .stButton>button:hover {
         background-color: #e53935;
     }
-    
-    <div style="text-align: center;">
-        <img src="blob:https://kr.pinterest.com/26d3db49-2ccd-41ed-9f60-45340075e73a" width="300">
-    </div>
     
     .prediction-text {
         font-size: 24px;
