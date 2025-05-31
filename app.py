@@ -60,7 +60,7 @@ ever_married = st.selectbox("Ever Married", ["Yes", "No"])
 work_type = st.selectbox("Work Type", ["Private", "Self-employed", "Govt_job", "children", "Never_worked"])
 bmi_input = st.number_input("BMI", min_value=0.0)
 residence_type = st.selectbox("Residence Type", ["Urban", "Rural"])
-avg_glucose_level = st.number_input("Average Glucose Level (mg/dL)", min_value=0.0)
+avg_glucose_level = st.number_input("Average Glucose Level (mmol/L)", min_value=0.0)
 smoking_status = st.selectbox("Smoking Status", ["never smoked", "formerly smoked", "smokes", "Unknown"])
 hypertension = st.selectbox("Hypertension", ["No", "Yes"])
 heart_disease = st.selectbox("Heart Disease", ["No", "Yes"])
@@ -70,6 +70,8 @@ ever_married_map = {"No": 0, "Yes": 1}
 work_type_map = {"Govt_job": 0, "Never_worked": 1,"Private": 2,"Self-employed": 3,"children": 4,}
 residence_map = {"Rural": 0,"Urban": 1}
 smoking_status_map = { "Unknown": 0,  "formerly smoked": 1, "never smoked": 2,"smokes": 3}
+avg_glucose_level = avg_glucose_level * 18.018
+bmi=0
 hypertension = 1 if hypertension == "Yes" else 0
 heart_disease = 1 if heart_disease == "Yes" else 0
 
